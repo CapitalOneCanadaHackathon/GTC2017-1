@@ -133,10 +133,11 @@
       <div>
         <p>Group Emails</p>
       <code id="emails">
-      {% for alum in alumni %}{% if not loop.last %}{{alum.email}}, {% endif  %}{% if loop.last%}{{alum.email}}{% endif %}{% endfor %}
+      {{ alumni|map(attribute='email')|join(', ')}}
       </code>
       <button onclick="copyToClipboard('#emails')">Copy Emails</button>
-      <a href='mailto:{% for alum in alumni %}{% if not loop.last%}{{alum.email}};{% endif %}{% if loop.last%}{{alum.email}}{% endif %}{% endfor %}'>Email All</a>
+      <a href='mailto:{{ alumni|map(attribute='email')|join(';')}}'>Email All</a>
+      </code>
       </div>
     {% endif %}
     </div>
