@@ -47,6 +47,12 @@
                 {% if alum["social_twitter"]%}
                   <a class="twitter" target="_blank" href="{{ alum['social_twitter']}}">twitter</a>
                 {% endif %}
+                {% if alum["email"]%}
+                  <a class="email" target="_blank" href="mailto:{{ alum['email']}}">{{ alum['email']}}</a>
+                {% endif %}
+                {% if alum["phone"]%}
+                  <a class="phone" target="_blank" href="tel:{{ alum['phone']}}">{{ alum['phone']}}</a>
+                {% endif %}
               </div>
             </div>
             <p class="primary-contact"><b>Primary contact:</b> {{ alum['owner']}}</p>

@@ -13,7 +13,7 @@
     }
     header {
       margin-bottom: 2rem;
-      background: #1ab282;
+      background-color: #1ab282;
       color: white;
     }
     header h1 {
@@ -93,8 +93,11 @@
     .reviewed .name, .reviewed .primary-contact, .reviewed .last-contact {
       color: #1ab282;
     }
-    .reviewed a.facebook, .reviewed a.instagram, .reviewed a.twitter {
+    .reviewed a.facebook, .reviewed a.instagram, .reviewed a.twitter, .reviewed a.phone, .reviewed a.email {
       background: #1ab282;
+    }
+    .reviewed a.phone, .reviewed a.email {
+      color: white;
     }
     .reviewed .review-btn {
       border: 1px solid #1ab282;
@@ -168,6 +171,7 @@
     }
     a.phone, a.email {
       background: rgba(0,0,0,0.1);
+      color: rgba(0,0,0,0.6);
     }
     .primary-contact, .last-contact {
       clear: both;
@@ -218,8 +222,10 @@
     }
     @media screen and (min-width: 769px) {
       header {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+        background-image: url("cee-logo-bg.svg");
+        background-size: cover;
       }
       .index, header h1, header h2 { 
         width: 85%;
@@ -237,8 +243,11 @@
         margin: 0.6rem 0;
       }
     }
-    @media screen and (min-width: 900px) {
-      .name, .contact-btns {
-        display: inline-block;
+    @media screen and (min-width:769px) and (max-width: 1100px) {
+      .alum main {
+        width: 75%;
+      }
+      .contact-btns {
+        line-height: 1.9;
       }
     }
