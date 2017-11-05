@@ -1,5 +1,5 @@
     body {    
-      margin: 0 auto;
+      margin: 0 auto 7rem;
       font-family: 'Lato', 'Helvetica Neue', sans-serif;
     }  
     .corner-logo {
@@ -12,7 +12,7 @@
       width: 40px;
     }
     header {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       background: #1ab282;
       color: white;
     }
@@ -40,7 +40,7 @@
       width: 15%;
       margin-right: 4%;
       position: relative;
-      top: 0.5rem;
+      top: 0.6rem;
     }
     .all-alumni p {
       margin-bottom: 0.25rem;
@@ -48,6 +48,10 @@
     .all-alumni a {
       display: block;
       text-decoration: none;
+      transition: color 0.2s;
+    }
+    .all-alumni a:hover {
+      color: rgba(0,0,0,0.7);
     }
     .review-schedule {
       width: 80%;
@@ -66,10 +70,13 @@
     .recommended {
       margin-bottom: 1rem;
       font-size: 1.5rem;
-      font-style: italic;
     }
     .primary-contact, .last-contact, .recommended, .all-alumni p, .all-alumni a {
       color: rgba(0,0,0,0.4);
+    }
+    .alum-container {
+      padding-top: 2rem;
+      margin-top: -2rem;
     }
     .alum {
       padding-top: 1rem;
@@ -80,12 +87,24 @@
       border: 1px solid rgba(0,0,0,0.1);
       border-radius: 6px;
     } 
-    .reviewed {
+    .reviewed .alum {
       border: 1px solid rgb(0,190,0);
     }
     .reviewed .name, .reviewed .primary-contact, .reviewed .last-contact {
-      color: rgb(0,190,0);
-      opacity: 0.85;
+      color: #1ab282;
+    }
+    .reviewed a.facebook, .reviewed a.instagram, .reviewed a.twitter {
+      background: #1ab282;
+    }
+    .reviewed .review-btn {
+      border: 1px solid #1ab282;
+      color: #1ab282;
+      cursor: initial;
+      opacity: 1;
+    }
+    .reviewed .review-btn:hover {
+      color: #1ab282;
+      opacity: 1;
     }
     .alum main, .alum aside {
       display: inline-block;
@@ -96,13 +115,18 @@
     }
     .review-btn {
       border: 1px solid;
-      padding: 5px 10px;
+      padding: 4px 8px;
       border-radius: 4px;
       position: relative;
       top: 0.3rem;
       text-decoration: none;
       color: rgba(0,0,0,0.7 );
+      background: white;
+      font-family: 'Lato', sans-serif;
       opacity: 0.5;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
     }
     .review-btn:hover {
       opacity: 1;
@@ -180,7 +204,14 @@
       }
       .primary-contact {
         margin-bottom: 0.25rem;
+      }   
+    }
+    @media screen and (min-width: 600px) and (max-width: 768px) {
+      .name, .contact-btns {
+        display: inline-block;
       }
+    }
+    @media screen and (max-width: 599px) {
       .name, .contact-btns {
         display: block;
       }
@@ -198,5 +229,16 @@
       }
       .review-schedule {
         width: 70%;
+      }
+      .name, .contact-btns {
+        display: block;
+      }
+      .contact-btns {
+        margin: 0.6rem 0;
+      }
+    }
+    @media screen and (min-width: 900px) {
+      .name, .contact-btns {
+        display: inline-block;
       }
     }

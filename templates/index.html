@@ -32,22 +32,24 @@
 
     <main class="review-schedule">
       {% macro review_block(alum) -%} 
-        <div class="alum" id={{alum.idx}}>
-          <main>
-          <div class="contact-line">
-            <p class="name">{{ alum["first name"] | title }} {{ alum["last name"] | title }}</p>
-            <div class="contact-btns">
-              <a class="facebook" target="_blank" href="{{ alum['social_fb']}}">facebook</a>
-              <a class="instagram" target="_blank" href="{{ alum['social_ig']}}">instagram</a>
-              <a class="twitter" target="_blank" href="{{ alum['social_twitter']}}">twitter</a>
+        <div class="alum-container" id={{alum.idx}}>
+          <div class="alum">
+            <main>
+            <div class="contact-line">
+              <p class="name">{{ alum["first name"] | title }} {{ alum["last name"] | title }}</p>
+              <div class="contact-btns">
+                <a class="facebook" target="_blank" href="{{ alum['social_fb']}}">facebook</a>
+                <a class="instagram" target="_blank" href="{{ alum['social_ig']}}">instagram</a>
+                <a class="twitter" target="_blank" href="{{ alum['social_twitter']}}">twitter</a>
+              </div>
             </div>
+            <p class="primary-contact"><b>Primary contact:</b> {{ alum['owner']}}</p>
+            <p class="last-contact"><b>Last reviewed on</b> {{ alum['last review']}}</p>
+            </main>
+            <aside>
+            <button class="review-btn" onclick='markreviewed({{alum.idx}})'>reviewed</button>
+            </aside>
           </div>
-          <p class="primary-contact"><b>Primary contact:</b> {{ alum['owner']}}</p>
-          <p class="last-contact"><b>Last reviewed on</b> {{ alum['last review']}}</p>
-          </main>
-          <aside>
-          <button class="review-btn" onclick='markreviewed({{alum.idx}})'>reviewed</button>
-          </aside>
         </div>
       {%- endmacro %}
 
