@@ -50,3 +50,10 @@ def update(idx):
     """Updates the Last Review date of the idx'th row"""
     update_review_date(idx)
     return "{'status':'success'}"
+
+@app.route("/group/<string:cohort>")
+def groups(cohort):
+    """Updates the Last Review date of the idx'th row"""
+    alumni = get_alumni()
+    alumni = [alum for alum in alumni if alum["cohort"].lower() == cohort.lower()]
+    return render_template("index.html", alumni=alumni)
