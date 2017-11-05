@@ -119,7 +119,24 @@
           </section>
         {% endif%}
       {% endfor %}
+
+    {% if cohort or contact %}
+      <div class=emails>
+        <p>Group Emails</p>
+      <code>
+      {% for alum in alumni %}
+      {% if not loop.last%}
+        {{alum.email}},
+      {% endif  %}
+      {% if loop.last%}
+        {{alum.email}}
+      {% endif %}
+      {% endfor %}
+      </code>
+      </div>
+    {% endif %}
+    </div>
+
     </main>
-  </div>
   </body>
 </html>
