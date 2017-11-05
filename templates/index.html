@@ -4,10 +4,19 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700" rel="stylesheet"> <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.min.js"></script>
-        <script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
     function markreviewed(idx) {
       axios.get('/update/'+idx)
         document.getElementById(idx).classList.add("reviewed")
+    }
+
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).text()).select();
+      document.execCommand("copy");
+      $temp.remove();
     }
     </script>
   </head>
@@ -121,18 +130,13 @@
       {% endfor %}
 
     {% if cohort or contact %}
-      <div class=emails>
+      <div>
         <p>Group Emails</p>
-      <code>
-      {% for alum in alumni %}
-      {% if not loop.last%}
-        {{alum.email}},
-      {% endif  %}
-      {% if loop.last%}
-        {{alum.email}}
-      {% endif %}
-      {% endfor %}
+      <code id="emails">
+      {% for alum in alumni %}{% if not loop.last %}{{alum.email}}, {% endif  %}{% if loop.last%}{{alum.email}}{% endif %}{% endfor %}
       </code>
+      <button onclick="copyToClipboard('#emails')">Copy Emails</button>
+      <a href='mailto:{% for alum in alumni %}{% if not loop.last%}{{alum.email}};{% endif %}{% if loop.last%}{{alum.email}}{% endif %}{% endfor %}'>Email All</a>
       </div>
     {% endif %}
     </div>
