@@ -8,7 +8,8 @@ staff are able to stay connected with alumni, stay up-to-date on how they’re d
 
 We provide a flask app backed by a Google sheet which allows staff to track and be up to date with their alumni.
 
-![](/static/demo.png)
+![frontend flask app](/static/demo.png)
+![backend is a google sheet](/static/demo_sheet.png)
 
 ## Requirements
 
