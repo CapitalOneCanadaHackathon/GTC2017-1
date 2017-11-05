@@ -20,6 +20,10 @@
       font-size: 2rem;
       margin: 0 auto 0.5rem;
     }
+    header h1 a, header h2 a {
+      text-decoration: none;
+      color: white;
+    }
     header h2 {
       font-size: 1.5rem;
       font-weight: 400;
@@ -175,6 +179,14 @@
     }
     .primary-contact, .last-contact {
       clear: both;
+    }
+    .primary-contact a {
+      text-decoration: none;
+      color: #1ab282;
+      opacity: 0.8;
+    }
+    .primary-contact a:hover {
+      opacity: 1;
     }
     .contact-line {
       margin-bottom: 0.25rem;
