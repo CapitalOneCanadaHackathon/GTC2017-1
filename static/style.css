@@ -1,147 +1,202 @@
-body {
-  width: 900px;
-  margin: 0 auto 10rem;
-  font-family: 'Lato', 'Helvetica Neue', sans-serif;
-} 
-.corner-logo {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  opacity: 0.8;
-  transition: opacity 0.2s;
-}
-.corner-logo:hover {
-  opacity: 1;
-}
-.corner-logo img {
-  width: 40px;
-}
-header {
-  margin: 3rem auto 2rem;
-}
-h1 {
-  font-size: 2rem;
-  margin: 0 0 0.5rem;
-}
-h2 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin: 0;
-}
-.all-alumni, .review-schedule {
-  display: inline-block;
-  vertical-align: top;
-}
-.all-alumni {
-  width: 150px;
-  margin-right: 2rem;
-  position: relative;
-  top: 0.5rem;
-}
-.all-alumni p {
-  margin-bottom: 0.25rem;
-}
-.all-alumni a {
-  display: block;
-  text-decoration: none;
-}
-.review-schedule {
-  width: 650px;
-}
-p {
-  margin: 0;
-}
-.to-review {
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-.to-review:last-of-type {
-  border-bottom: none;
-}
-.recommended {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-style: italic;
-}
-.primary-contact, .last-contact, .recommended, .all-alumni p, .all-alumni a {
-  color: rgba(0,0,0,0.4);
-}
-.alum {
-  padding-top: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1rem;
-  padding-bottom: 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 6px;
-}	
-.alum:hover {
-}
-.alum main, .alum aside {
-  display: inline-block;
-  vertical-align: top;
-}
-.alum aside {
-  float: right;
-}
-a.review-btn {
-  border: 1px solid;
-  padding: 5px 10px;
-  border-radius: 4px;
-  position: relative;
-  top: 0.3rem;
-  text-decoration: none;
-  color: rgba(0,0,0,0.7);
-  opacity: 0.5;
-}
-a.review-btn:hover {
-  opacity: 1;
-  color: rgba(0, 190, 0, 1);
-}
-p.name, .contact-btns {
-  display: inline-block;
-  vertical-align: middle;
-}
-p.name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-right: 0.35rem;
-}
-.contact-btns a {
-  text-decoration: none;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-}
-.contact-btns a:hover {
-  opacity: 1;
-}
-a.facebook {
-  background: #3b5998;
-}
-a.instagram {
-  background: linear-gradient(to bottom left,  #9B36B7, #F15245)
-}
-a.twitter {
-  background: #1DA1F2;
-}
-a.snapchat {
-  background: rgba(0, 255, 255, 1);
-  color: black;
-}
-a.phone, a.email {
-  background: rgba(0,0,0,0.1);
-}
-.primary-contact, .last-contact {
-  clear: both;
-}
-.contact-line {
-  margin-bottom: 0.25rem;
-}
+    body {    
+      margin: 0 auto;
+      font-family: 'Lato', 'Helvetica Neue', sans-serif;
+    }  
+    .corner-logo {
+      position: absolute;
+      top: 3rem;
+      left: 2rem;
+      display: none;
+    }
+    .corner-logo img {
+      width: 40px;
+    }
+    header {
+      margin-bottom: 1rem;
+      background: #1ab282;
+      color: white;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0 auto 0.5rem;
+    }
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 auto;
+    }
+    .index, header h1, header h2 {
+      max-width: 900px;
+      width: 70%;
+    }
+    .index {
+      margin: 0 auto;
+    }
+    .all-alumni, .review-schedule {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .all-alumni {
+      width: 15%;
+      margin-right: 4%;
+      position: relative;
+      top: 0.5rem;
+    }
+    .all-alumni p {
+      margin-bottom: 0.25rem;
+    }
+    .all-alumni a {
+      display: block;
+      text-decoration: none;
+    }
+    .review-schedule {
+      width: 80%;
+    }
+    p {
+      margin: 0;
+    }
+    .to-review {
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .to-review:last-of-type {
+      border-bottom: none;
+    }
+    .recommended {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+    .primary-contact, .last-contact, .recommended, .all-alumni p, .all-alumni a {
+      color: rgba(0,0,0,0.4);
+    }
+    .alum {
+      padding-top: 1rem;
+      padding-left: 1.5rem;
+      padding-right: 1rem;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 6px;
+    } 
+    .reviewed {
+      border: 1px solid rgb(0,190,0);
+    }
+    .reviewed .name, .reviewed .primary-contact, .reviewed .last-contact {
+      color: rgb(0,190,0);
+      opacity: 0.85;
+    }
+    .alum main, .alum aside {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .alum aside {
+      float: right;
+    }
+    .review-btn {
+      border: 1px solid;
+      padding: 5px 10px;
+      border-radius: 4px;
+      position: relative;
+      top: 0.3rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.7 );
+      opacity: 0.5;
+    }
+    .review-btn:hover {
+      opacity: 1;
+      color: rgba(0, 190, 0, 1);
+    }
+    p.name, .contact-btns {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    p.name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-right: 0.35rem;
+    }
+    .contact-btns a {
+      text-decoration: none;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .contact-btns a:hover {
+      opacity: 1;
+    }
+    a.facebook {
+      background: #3b5998;
+    }
+    a.instagram {
+      background: linear-gradient(to bottom left,  #9B36B7, #F15245)
+    }
+    a.twitter {
+      background: #1DA1F2;
+    }
+    a.snapchat {
+      background: rgba(0, 255, 255, 1);
+      color: black;
+    }
+    a.phone, a.email {
+      background: rgba(0,0,0,0.1);
+    }
+    .primary-contact, .last-contact {
+      clear: both;
+    }
+    .contact-line {
+      margin-bottom: 0.25rem;
+    }
 
-
-
+    @media screen and (max-width: 768px) {
+      .all-alumni {
+        display: none;
+      }
+      .index, header h1, header h2 { 
+        width: 90%;
+      }
+      header {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      br {
+        display: none;
+      }
+      .alum {
+        padding: 1rem;
+      }
+      .review-schedule {
+        width: 100%;
+      }
+      .alum main {
+        width: 60%;
+      }
+      .contact-btns {
+        line-height: 1.9;
+      }
+      .primary-contact {
+        margin-bottom: 0.25rem;
+      }
+      .name, .contact-btns {
+        display: block;
+      }
+    }
+    @media screen and (min-width: 769px) {
+      header {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+      .index, header h1, header h2 { 
+        width: 85%;
+      }
+      .all-alumni {
+        min-width: 150px;
+      }
+      .review-schedule {
+        width: 70%;
+      }
+    }
