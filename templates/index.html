@@ -130,8 +130,8 @@
       {% endfor %}
 
     {% if cohort or contact %}
-      <div>
-        <p>Group Emails</p>
+      <div id="group-emails">
+        <p><b>Email this list</b></p>
       <code id="emails">
       {{ alumni|map(attribute='email')|join(', ')}}
       </code>
