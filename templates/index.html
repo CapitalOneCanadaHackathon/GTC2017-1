@@ -50,35 +50,51 @@
       </div>
     {%- endmacro %}
 
-    <section class="to-review today">
-      <p class="recommended">Review today</p>
       {% for alum in alumni if (alum["days until"] == 0) %}
-        {{ review_block(alum) }}
-      {% endfor %}
-    </section>
+        {% if loop.first %}
+          <section class="to-review today">
+          <p class="recommended">Review today</p>
+        {% endif %}
 
-    <section class="to-review tomorrow">
-      <p class="recommended">Review Tomorrow</p>
+        {{ review_block(alum) }}
+
+        {% if loop.last %}
+          </section>
+        {% endif%}
+      {% endfor %}
+
       {% for alum in alumni if (1 <= alum["days until"] < 2) %}
-        {{ review_block(alum) }}
+        {% if loop.first %}
+          <p class="recommended">Review tomorrow</p>
+          <section class="to-review tomorrow">
+        {% endif %}
+          {{ review_block(alum) }}
+        {% if loop.last %}
+          </section>
+        {% endif%}
       {% endfor %}
-    </section>
 
-    <section class="to-review next week">
-      <p class="recommended">Review Next Week</p>
       {% for alum in alumni if (7 <= alum["days until"] < 14) %}
-        {{ review_block(alum) }}
+        {% if loop.first %}
+          <p class="recommended">Review next week</p>
+          <section class="to-review next week">
+        {% endif %}
+          {{ review_block(alum) }}
+        {% if loop.last %}
+          </section>
+        {% endif%}
       {% endfor %}
-    </section>
 
-    <section class="to-review next few">
-      <p class="recommended">Review Next Month</p>
       {% for alum in alumni if (14 <= alum["days until"]) %}
-        {{ review_block(alum) }}
+        {% if loop.first %}
+          <section class="to-review next few">
+          <p class="recommended">Review next month</p>
+        {% endif %}
+          {{ review_block(alum) }}
+        {% if loop.last %}
+          </section>
+        {% endif%}
       {% endfor %}
-    </section>
-
     </main>
   </body>
-
 </html>
