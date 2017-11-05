@@ -43,7 +43,7 @@ def update_review_date(idx):
 def index():
     """Homepage of the alumni list"""
     alumni = get_alumni()
-    return render_template("index.html", alumni=alumni)
+    return render_template("index.html", alumni=alumni, cohort="", contact="")
 
 @app.route("/update/<int:idx>")
 def update(idx):
@@ -56,4 +56,11 @@ def groups(cohort):
     """Updates the Last Review date of the idx'th row"""
     alumni = get_alumni()
     alumni = [alum for alum in alumni if alum["cohort"].lower() == cohort.lower()]
-    return render_template("index.html", alumni=alumni)
+    return render_template("index.html", alumni=alumni, cohort=cohort, contact="")
+
+@app.route("/contact/<string:contact>")
+def primary_contact(contact):
+    """Updates the Last Review date of the idx'th row"""
+    alumni = get_alumni()
+    alumni = [alum for alum in alumni if alum["owner"].lower().replace(" ", "-") == contact.lower().replace(" ", "-")]
+    return render_template("index.html", alumni=alumni, cohort="", contact=contact)

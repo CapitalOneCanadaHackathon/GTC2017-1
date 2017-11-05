@@ -55,8 +55,9 @@
                 {% endif %}
               </div>
             </div>
-            <p class="primary-contact"><b>Primary contact:</b> {{ alum['owner']}}</p>
-            <p class="last-contact"><b>Last reviewed on</b> {{ alum['last review']}}</p>
+            <p class="primary-contact"><b>Primary contact:</b> <a href="/contact/{{alum["owner"]|lower|replace(" ", "-")}}">{{ alum['owner']}}</a></p>
+            <p class="primary-contact"><b>Cohort:</b> <a href="/group/{{alum["cohort"]}}">{{ alum['cohort']}}</a></p>
+            <p class="last-contact">Last reviewed on {{ alum['last review']}}</p>
             </main>
             <aside>
             <button class="review-btn" onclick='markreviewed({{alum.idx}})'>reviewed</button>
@@ -64,6 +65,14 @@
           </div>
         </div>
       {%- endmacro %}
+
+      {% if cohort%}
+      <p class="recommended"><b>Cohort:</b> {{cohort|title}}</p>
+      {% endif %}
+
+      {% if contact%}
+      <p class="recommended"><b>Primary Contact:</b> {{contact|replace("-", " ")|title}}</p>
+      {% endif %}
 
       {% for alum in alumni if (alum["days until"] == 0) %}
         {% if loop.first %}
