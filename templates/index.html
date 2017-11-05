@@ -38,9 +38,15 @@
             <div class="contact-line">
               <p class="name">{{ alum["first name"] | title }} {{ alum["last name"] | title }}</p>
               <div class="contact-btns">
-                <a class="facebook" target="_blank" href="{{ alum['social_fb']}}">facebook</a>
-                <a class="instagram" target="_blank" href="{{ alum['social_ig']}}">instagram</a>
-                <a class="twitter" target="_blank" href="{{ alum['social_twitter']}}">twitter</a>
+                {% if alum["social_fb"]%}
+                  <a class="facebook" target="_blank" href="{{ alum['social_fb']}}">facebook</a>
+                {% endif %}
+                {% if alum["social_ig"]%}
+                  <a class="instagram" target="_blank" href="{{ alum['social_ig']}}">instagram</a>
+                {% endif %}
+                {% if alum["social_twitter"]%}
+                  <a class="twitter" target="_blank" href="{{ alum['social_twitter']}}">twitter</a>
+                {% endif %}
               </div>
             </div>
             <p class="primary-contact"><b>Primary contact:</b> {{ alum['owner']}}</p>

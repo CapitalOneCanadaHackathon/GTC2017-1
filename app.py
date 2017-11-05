@@ -20,6 +20,7 @@ def get_alumni():
     sht = get_connection()
     alumni = pd.read_csv(StringIO(sht.export()))
     alumni["idx"] = alumni.index + 2
+    alumni = alumni.fillna("")
     alumni = alumni.T.to_dict().values()
     return alumni
 
