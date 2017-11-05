@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700" rel="stylesheet"> <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.min.js"></script>
+    <script>
+    function markreviewed(idx) {
+      axios.get('/update/'+idx)
+        document.getElementById(idx).classList.add("reviewed")
+    }
+    </script>
+  </head>
+
+  <body>
+    <a class="corner-logo" target="_blank" href="http://ceetoronto.com/">
+      <img src="{{ url_for('static', filename='cee-logo.jpg') }}">
+    </a>
+
+    <header>
+      <h1>CEE Alumni Social Media</h1>
+      <h2>Use this page to keep up with alumni on social media.<br/>We try to review what alumni are posting at least once a month.</h2>
+    </header>
+
+    <sidebar class="all-alumni">
+    <p><b>All alumni</b></p>
+    {% for alum in alumni | sort(attribute="last name") %}
+    <a href="#{{alum.idx}}">{{ alum["first name"] | title }} {{ alum["last name"] | title }}</a>
+    {% endfor %}
+    </sidebar>
+<main class="review-schedule">
+
+    {% macro review_block(alum) -%} 
+      <div class="alum" id={{alum.idx}}>
+        <main>
+        <div class="contact-line">
+          <p class="name">{{ alum["first name"] | title }} {{ alum["last name"] | title }}</p>
+          <div class="contact-btns">
+            <a class="facebook" target="_blank" href="{{ alum['social_fb']}}">facebook</a>
+            <a class="instagram" target="_blank" href="{{ alum['social_ig']}}">instagram</a>
+            <a class="twitter" target="_blank" href="{{ alum['social_twitter']}}">twitter</a>
+          </div>
+        </div>
+        <p class="primary-contact"><b>Primary contact:</b> {{ alum['owner']}}</p>
+        <p class="last-contact"><b>Last reviewed on</b> {{ alum['last review']}}</p>
+        </main>
+        <aside>
+        <input type=button value='reviewed' class="review-btn" onclick='markreviewed({{alum.idx}})'></a>
+        </aside>
+      </div>
+    {%- endmacro %}
+
+    <section class="to-review today">
+      <p class="recommended">Review today</p>
+      {% for alum in alumni if (alum["days until"] == 0) %}
+        {{ review_block(alum) }}
+      {% endfor %}
+    </section>
+
+    <section class="to-review tomorrow">
+      <p class="recommended">Review Tomorrow</p>
+      {% for alum in alumni if (1 <= alum["days until"] < 2) %}
+        {{ review_block(alum) }}
+      {% endfor %}
+    </section>
+
+    <section class="to-review next week">
+      <p class="recommended">Review Next Week</p>
+      {% for alum in alumni if (7 <= alum["days until"] < 14) %}
+        {{ review_block(alum) }}
+      {% endfor %}
+    </section>
+
+    <section class="to-review next few">
+      <p class="recommended">Review Next Month</p>
+      {% for alum in alumni if (14 <= alum["days until"]) %}
+        {{ review_block(alum) }}
+      {% endfor %}
+    </section>
+
+    </main>
+  </body>
+
+</html>
